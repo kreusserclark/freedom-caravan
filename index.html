@@ -1,0 +1,229 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Freedom Caravan</title>
+		<style>
+		* {box-sizing:border-box}
+
+		/* Slideshow container */
+		.slideshow-container {
+		  max-width: 1000px;
+		  position: relative;
+		  margin: auto;
+		}
+
+		/* Hide the images by default */
+		.mySlides {
+		  display: none;
+		}
+
+		/* Caption text */
+		.text {
+		  color: #1A1A1A;
+		  font-size: 25px;
+			width: 100%;
+		  text-align: center;
+		}
+
+
+		/* Fading animation */
+		.fade {
+		  animation-name: fade;
+		  animation-duration: 1.5s;
+		}
+
+		@keyframes fade {
+		  from {opacity: .4}
+		  to {opacity: 1}
+		}
+
+        .thumbnails {
+            text-align: center;
+            margin-top: 0px;
+        }
+
+        .thumbnails img {
+            width: 90px;
+            margin: 12px;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .thumbnails img:hover {
+            border-color: #717171;
+        }
+		</style>
+		
+</head>
+<body>
+  <!-- Header Section -->
+    <header>
+    <a href="https://meet.google.com/krv-usnt-iak" target="_blank">
+        <center><img src="./images/animated-bus.gif" alt="School Bus" style="
+            max-width: 100%; 
+            height: auto; 
+            width: auto; 
+        "></center>
+    </a>
+</header> 
+<center>
+<table>
+  <tr>
+    
+    <td>
+<!-- Audio element -->
+  <audio id="audio" src="./images/america.mp3"></audio>
+
+  <!-- Image button -->
+  <img src="./images/soundtrack.gif" alt="Play Button" style="cursor:pointer;" onclick="document.getElementById('audio').play();">
+
+
+</td>
+    <td>
+    <!-- Pause/Play Button -->
+<center>
+
+    <img id="playPlay" src="./images/pause-button.gif" onclick="toggleSlideshow()" style="cursor: pointer; display: none" title="Pause/Play">
+</center>
+		
+<script>
+let slideIndex = 0;
+let slideInterval = setInterval(showSlides, 5000); // Auto-play interval
+let isPlaying = true; // State of autoplay
+
+function showSlides() {
+    let slides = document.getElementsByClassName("mySlides");
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) { slideIndex = 1; }
+    slides[slideIndex - 1].style.display = "block";
+
+    // Reveal thumbnails after slideshow loads
+    document.getElementById("thumbnails").style.display = "block";
+
+	// Reveal play/pause button after slideshow starts
+    <!--document.getElementById("playPause").style.display = "inline";-->
+	document.getElementById("playPlay").style.display = "inline";
+	
+}
+
+function toggleSlideshow() {
+    if (isPlaying) {
+        clearInterval(slideInterval);
+        isPlaying = false;
+        document.getElementById("playPause").innerText = "Play";
+    } else {
+        showSlides(); // Show the next slide immediately
+		slideInterval = setInterval(showSlides, 3000);
+        isPlaying = true;
+        document.getElementById("playPause").innerText = "Pause";
+    }
+}
+function currentSlide(n) {
+    slideIndex = n - 1; // Set the slide index
+    showSlides(); // Display the selected slide
+    if (isPlaying) {
+        clearInterval(slideInterval);
+        slideInterval = setInterval(showSlides, 3000);
+    }
+}
+
+
+</script>
+</td>
+  </tr>
+</center>  
+</table>
+
+   <!-- Slideshow container -->
+<div class="slideshow-container">
+
+  <!-- Slides -->
+  
+<div class="mySlides fade">
+    	<img src="./images/roll.gif" style="max-width: 100%; 
+            height: auto; 
+            width: auto;
+			top:  5px">
+      </div>
+
+<div class="mySlides fade">
+  	<img src="./images/flag.gif" style="max-width: 100%; 
+            height: auto; 
+            width: auto;
+			top:  5px">
+      </div>
+
+<div class="mySlides fade">
+    	<img src="./images/map.gif" style="max-width: 100%; 
+            height: auto; 
+            width: auto;
+			top:  5px">
+      </div>
+ 
+<div class="mySlides fade">
+	<img src="./images/invite.gif" style="max-width: 100%; 
+            height: auto; 
+            width: auto;
+			top:  5px">
+      </div>
+
+<div class="mySlides fade">
+	<img src="./images/crowd.gif" style="max-width: 100%; 
+            height: auto; 
+            width: auto;
+			top:  5px">
+      </div>
+
+<div class="mySlides fade">
+	<img src="./images/america.gif" style="max-width: 100%; 
+            height: auto; 
+            width: auto;
+			top:  5px"/>
+      </div>
+<div class="mySlides fade"> 
+	<img src="./images/action.gif" style="max-width: 100%; 
+            height: auto; 
+            width: auto;
+			top:  5px">
+      </div>
+
+<div class="mySlides fade"> 
+	<img src="./images/plan.gif" style="max-width: 100%; 
+            height: auto; 
+            width: auto;
+			top:  5px">
+      </div>
+
+
+
+   
+
+    <!-- Thumbnails -->
+	
+	<div class="thumbnails" id="thumbnails" style="display: none;">
+	
+		<img src="./images/thumbnails/roll-thumbnail.gif" onclick="currentSlide(1)" alt="Slide 1">
+
+		<img src="./images/thumbnails/flag-thumbnail.gif" onclick="currentSlide(2)" alt="Slide 2">
+
+		<img src="./images/thumbnails/map-thumbnail.gif" onclick="currentSlide(3)" alt="Slide 3">
+			
+		<img src="./images/thumbnails/invite-thumbnail.gif" onclick="currentSlide(4)" alt="Slide 4">
+		
+		<img src="./images/thumbnails/crowd-thumbnail.gif" onclick="currentSlide(5)" alt="Slide 5">
+		
+		<img src="./images/thumbnails/america-thumbnail.gif" onclick="currentSlide(6)" alt="Slide 6">
+		
+		<img src="./images/thumbnails/action-thumbnail.gif" onclick="currentSlide(7)" alt="Slide 7">
+		
+		<img src="./images/thumbnails/plan-thumbnail.gif" onclick="currentSlide(8)" alt="Slide 8">
+		
+	</div>
+
+   
+</body>
+</html>
