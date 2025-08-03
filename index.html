@@ -117,7 +117,7 @@ function toggleSlideshow() {
         document.getElementById("playPause").innerText = "Play";
     } else {
         showSlides(); // Show the next slide immediately
-		slideInterval = setInterval(showSlides, 3000);
+		slideInterval = setInterval(showSlides, 3600);
         isPlaying = true;
         document.getElementById("playPause").innerText = "Pause";
     }
@@ -127,7 +127,7 @@ function currentSlide(n) {
     showSlides(); // Display the selected slide
     if (isPlaying) {
         clearInterval(slideInterval);
-        slideInterval = setInterval(showSlides, 3000);
+        slideInterval = setInterval(showSlides, 3600);
     }
 }
 
@@ -144,6 +144,7 @@ function currentSlide(n) {
   <!-- Slides -->
   
 <div class="mySlides fade">
+		<a href="files/The Freedom Caravan.pdf" target="_blank">
     	<img src="./images/roll.gif" style="max-width: 100%; 
             height: auto; 
             width: auto;
@@ -151,13 +152,15 @@ function currentSlide(n) {
       </div>
 
 <div class="mySlides fade">
-  	<img src="./images/flag.gif" style="max-width: 100%; 
+		<a href="files/The Freedom Caravan.pdf" target="_blank">
+		<img src="./images/flag.gif" style="max-width: 100%; 
             height: auto; 
             width: auto;
 			top:  5px">
       </div>
 
 <div class="mySlides fade">
+		<a href="files/The Freedom Caravan.pdf" target="_blank">
     	<img src="./images/map.gif" style="max-width: 100%; 
             height: auto; 
             width: auto;
@@ -165,6 +168,7 @@ function currentSlide(n) {
       </div>
  
 <div class="mySlides fade">
+		<a href="files/The Freedom Caravan.pdf" target="_blank">
 	<img src="./images/invite.gif" style="max-width: 100%; 
             height: auto; 
             width: auto;
@@ -172,6 +176,7 @@ function currentSlide(n) {
       </div>
 
 <div class="mySlides fade">
+		<a href="files/The Freedom Caravan.pdf" target="_blank">
 	<img src="./images/crowd.gif" style="max-width: 100%; 
             height: auto; 
             width: auto;
@@ -179,12 +184,14 @@ function currentSlide(n) {
       </div>
 
 <div class="mySlides fade">
+		<a href="files/The Freedom Caravan.pdf" target="_blank">
 	<img src="./images/america.gif" style="max-width: 100%; 
             height: auto; 
             width: auto;
 			top:  5px"/>
       </div>
 <div class="mySlides fade"> 
+		<a href="files/The Freedom Caravan.pdf" target="_blank">
 	<img src="./images/action.gif" style="max-width: 100%; 
             height: auto; 
             width: auto;
