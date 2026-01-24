@@ -1,247 +1,185 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Freedom Caravan</title>
-		<style>
-		* {box-sizing:border-box}
+<meta charset="UTF-8">
+<title>Homeroom Home</title>
 
-		/* Slideshow container */
-		.slideshow-container {
-		  max-width: 1000px;
-		  position: relative;
-		  margin: auto;
-		}
+<style>
+    * {
+        box-sizing: border-box;
+    }
 
-		/* Hide the images by default */
-		.mySlides {
-		  display: none;
-		}
+    body {
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        font-family: Arial, sans-serif;
+    }
 
-		/* Caption text */
-		.text {
-		  color: #1A1A1A;
-		  font-size: 25px;
-			width: 100%;
-		  text-align: center;
-		}
+    /* ===== TV + SLIDESHOW CONTAINER ===== */
+    .slideshow-container {
+        width: 100%;
+        max-width: 900px;   /* Safe Canvas width */
+        margin: 0 auto;
+        position: relative;
+    }
 
+    .mySlides {
+        display: none;
+    }
 
-		/* Fading animation */
-		.fade {
-		  animation-name: fade;
-		  animation-duration: 1.5s;
-		}
+    .mySlides img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
 
-		@keyframes fade {
-		  from {opacity: .4}
-		  to {opacity: 1}
-		}
+    /* Fade animation */
+    .fade {
+        animation: fade 1.5s;
+    }
 
-        .thumbnails {
-            text-align: center;
-            margin-top: 0px;
-        }
+    @keyframes fade {
+        from { opacity: .4; }
+        to { opacity: 1; }
+    }
 
-        .thumbnails img {
-            width: 90px;
-            margin: 12px;
-            cursor: pointer;
-            border: 2px solid transparent;
-        }
+    /* ===== THUMBNAILS ===== */
+    .thumbnails {
+        display: flex;
+        justify-content: space-between; /* forces exact spacing */
+        align-items: center;
+        max-width: 900px;
+        margin: 6px auto 0;
+    }
 
-        .thumbnails img:hover {
-            border-color: #717171;
-        }
-		</style>
-		
+    .thumbnails img {
+        width: 78px;   /* tuned for exactly 8 */
+        cursor: pointer;
+        border: 2px solid transparent;
+    }
+
+    .thumbnails img:hover {
+        border-color: #717171;
+    }
+
+    /* ===== PLAY / PAUSE (BOBCAT) ===== */
+    .controls {
+        margin-top: 4px;
+    }
+
+    .controls img {
+        cursor: pointer;
+    }
+</style>
 </head>
+
 <body>
 
-	<!-- Header Section -->
-    <header>
-   <a href="files/The Freedom Caravan.pdf" target="_blank">
-        <center><img src="./images/animated-bus.gif" alt="School Bus" style="
-            max-width: 100%; 
-            height: auto; 
-            width: auto; 
-        "></center>
-    </a>
-</header> 
-<center>
-<table>
-  <tr>
-    
-    <td>
-<!-- Audio element -->
-  <audio id="audio" src="./images/america.mp3"></audio>
+<!-- ===== SLIDESHOW / TV ===== -->
+<div class="slideshow-container">
 
-  <!-- Image button -->
-  <img src="./images/soundtrack.gif" alt="Play Button" style="cursor:pointer;" onclick="document.getElementById('audio').play();">
+    <div class="mySlides fade">
+        <img src="./images/welcomehr.gif" alt="Welcome">
+    </div>
 
+    <div class="mySlides fade">
+        <img src="./images/video.gif" alt="Video">
+    </div>
 
-</td>
-    <td>
-    <!-- Pause/Play Button -->
-<center>
+    <div class="mySlides fade">
+        <a href="https://app.smore.com/n/8g0fm-tvah-announcements" target="_blank">
+            <img src="./images/official.gif" alt="Official Announcements">
+        </a>
+    </div>
 
-    <img id="playPlay" src="./images/pause-button.gif" onclick="toggleSlideshow()" style="cursor: pointer; display: none" title="Pause/Play">
-</center>
-		
+    <div class="mySlides fade">
+        <img src="./images/announce.gif" alt="Announcements">
+    </div>
+
+    <div class="mySlides fade">
+        <img src="./images/daily.gif" alt="Daily">
+    </div>
+
+    <div class="mySlides fade">
+        <img src="./images/agenda.gif" alt="Agenda">
+    </div>
+
+    <div class="mySlides fade">
+        <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=LUmWRm1kPE2UZWxaNvMaFgoy3fVMDOZPvpOmQOQ7eO5UQTZPWkZQMDFZRFpORktXVUdMSTA5QlZXOS4u" target="_blank">
+            <img src="./images/checkin.gif" alt="Check In">
+        </a>
+    </div>
+
+</div>
+
+<!-- ===== THUMBNAILS (ALWAYS VISIBLE) ===== -->
+<div class="thumbnails">
+    <img src="./images/thumbnails/welcome-thumbnail.gif" onclick="currentSlide(1)">
+    <img src="./images/thumbnails/video-thumbnail.gif" onclick="currentSlide(2)">
+    <img src="./images/thumbnails/official-thumbnail.gif" onclick="currentSlide(3)">
+    <img src="./images/thumbnails/announce-thumbnail.gif" onclick="currentSlide(4)">
+    <img src="./images/thumbnails/daily-thumbnail.gif" onclick="currentSlide(5)">
+    <img src="./images/thumbnails/agenda-thumbnail.gif" onclick="currentSlide(6)">
+    <img src="./images/thumbnails/checkin-thumbnail.gif" onclick="currentSlide(7)">
+    <img src="./images/thumbnails/checkin-thumbnail.gif" onclick="currentSlide(8)">
+</div>
+
+<!-- ===== BOBCAT CONTROL (BELOW THUMBNAILS) ===== -->
+<div class="controls">
+    <img id="playPlay"
+         src="./images/pause-button.gif"
+         onclick="toggleSlideshow()"
+         title="Play / Pause">
+</div>
+
+<!-- ===== SCRIPT ===== -->
 <script>
 let slideIndex = 0;
-let slideInterval = setInterval(showSlides, 5000); // Auto-play interval
-let isPlaying = true; // State of autoplay
+let isPlaying = true;
+let slideInterval;
 
 function showSlides() {
     let slides = document.getElementsByClassName("mySlides");
     for (let i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
     }
+
     slideIndex++;
-    if (slideIndex > slides.length) { slideIndex = 1; }
+    if (slideIndex > slides.length) {
+        slideIndex = 1;
+    }
+
     slides[slideIndex - 1].style.display = "block";
+}
 
-    // Reveal thumbnails after slideshow loads
-    document.getElementById("thumbnails").style.display = "block";
-
-	// Reveal play/pause button after slideshow starts
-    <!--document.getElementById("playPause").style.display = "inline";-->
-	document.getElementById("playPlay").style.display = "inline";
-	
+function startSlideshow() {
+    showSlides();
+    slideInterval = setInterval(showSlides, 5000);
 }
 
 function toggleSlideshow() {
     if (isPlaying) {
         clearInterval(slideInterval);
         isPlaying = false;
-        document.getElementById("playPause").innerText = "Play";
     } else {
-        showSlides(); // Show the next slide immediately
-		slideInterval = setInterval(showSlides, 3600);
+        startSlideshow();
         isPlaying = true;
-        document.getElementById("playPause").innerText = "Pause";
     }
 }
+
 function currentSlide(n) {
-    slideIndex = n - 1; // Set the slide index
-    showSlides(); // Display the selected slide
+    slideIndex = n - 1;
+    showSlides();
     if (isPlaying) {
         clearInterval(slideInterval);
-        slideInterval = setInterval(showSlides, 3600);
+        slideInterval = setInterval(showSlides, 5000);
     }
 }
 
-
+/* Start immediately – no Canvas delay */
+startSlideshow();
 </script>
-</td>
-  </tr>
-</center>  
-</table>
 
-   <!-- Slideshow container -->
-<div class="slideshow-container">
-
-  <!-- Slides -->
-  
-<div class="mySlides fade">
-	    	<img src="https://tv-english-1.my.canva.site/" style="max-width: 100%; 
-            height: auto; 
-            width: auto;
-			top:  5px">
-      </div>
-
-<div class="mySlides fade">
-		<img src="https://tv-english-1.my.canva.site/" style="max-width: 100%; 
-            height: auto; 
-            width: auto;
-			top:  5px">
-		
-      </div>
-
-<div class="mySlides fade">
-		<a href="files/The Freedom Caravan.pdf" target="_blank">
-    	<img src="./images/map.gif" style="max-width: 100%; 
-            height: auto; 
-            width: auto;
-			top:  5px">
-      </div>
- 
-<div class="mySlides fade">
-		<a href="files/The Freedom Caravan.pdf" target="_blank">
-	<img src="./images/invite.gif" style="max-width: 100%; 
-            height: auto; 
-            width: auto;
-			top:  5px">
-      </div>
-
-<div class="mySlides fade">
-		<a href="files/The Freedom Caravan.pdf" target="_blank">
-	<img src="./images/crowd.gif" style="max-width: 100%; 
-            height: auto; 
-            width: auto;
-			top:  5px">
-      </div>
-
-<div class="mySlides fade">
-		<a href="files/The Freedom Caravan.pdf" target="_blank">
-	<img src="./images/america.gif" style="max-width: 100%; 
-            height: auto; 
-            width: auto;
-			top:  5px"/>
-      </div>
-<div class="mySlides fade"> 
-		<a href="files/The Freedom Caravan.pdf" target="_blank">
-	<img src="./images/action.gif" style="max-width: 100%; 
-            height: auto; 
-            width: auto;
-			top:  5px">
-      </div>
-
-<div class="mySlides fade"> 
-	<a href="files/The Freedom Caravan.pdf" target="_blank">
-	<img src="./images/plan.gif" style="max-width: 100%; 
-            height: auto; 
-            width: auto;
-			top:  5px"></a>
-      </div>
-
-
-
-   
-
-    <!-- Thumbnails -->
-	
-	<div class="thumbnails" id="thumbnails" style="display: none;">
-	
-		<img src="./images/thumbnails/roll-thumbnail.gif" onclick="currentSlide(1)" alt="Slide 1">
-
-		<img src="./images/thumbnails/flag-thumbnail.gif" onclick="currentSlide(2)" alt="Slide 2">
-
-		<img src="./images/thumbnails/map-thumbnail.gif" onclick="currentSlide(3)" alt="Slide 3">
-			
-		<img src="./images/thumbnails/invite-thumbnail.gif" onclick="currentSlide(4)" alt="Slide 4">
-		
-		<img src="./images/thumbnails/crowd-thumbnail.gif" onclick="currentSlide(5)" alt="Slide 5">
-		
-		<img src="./images/thumbnails/america-thumbnail.gif" onclick="currentSlide(6)" alt="Slide 6">
-		
-		<img src="./images/thumbnails/action-thumbnail.gif" onclick="currentSlide(7)" alt="Slide 7">
-		
-		<img src="./images/thumbnails/plan-thumbnail.gif" onclick="currentSlide(8)" alt="Slide 8">
-		
-	</div>
-
-
-   
 </body>
-
 </html>
-
-
-
-
-
-
-
-
